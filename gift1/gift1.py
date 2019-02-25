@@ -1,3 +1,9 @@
+"""
+ID: mxinbur1
+LANG: PYTHON3
+TASK: gift1
+"""
+
 class gift1:
     def __init__(self):
         self.input = open("gift1.in", "r")
@@ -9,13 +15,16 @@ class gift1:
             self.people[self.lines.pop(0).strip()] = 0
 
     def giveGifts(self):
-        for i in range(0, len(self.people)):
+        while True:
+            if len(self.lines) == 0:
+                break
             personName = self.lines.pop(0)
+            print(personName)
             info = self.lines.pop(0).split()
             money = int(info[0])
             numOfPeople = int(info[1])
             if numOfPeople == 0:
-                break
+                continue
             givenMoney = money // numOfPeople
             leftOverMoney = money % numOfPeople
             for i in range(0, numOfPeople):
